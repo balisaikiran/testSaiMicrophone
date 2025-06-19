@@ -7,6 +7,7 @@ import { ScreenshotHelper } from "./ScreenshotHelper"
 import { ShortcutsHelper } from "./shortcuts"
 import { AudioHelper } from "./AudioHelper"
 import { CustomPromptHelper } from "./CustomPromptHelper"
+import { AdvancedFeaturesHelper } from "./AdvancedFeaturesHelper"
 import { initAutoUpdater } from "./autoUpdater"
 import { configHelper } from "./ConfigHelper"
 import * as dotenv from "dotenv"
@@ -33,6 +34,7 @@ const state = {
   processingHelper: null as ProcessingHelper | null,
   audioHelper: null as AudioHelper | null,
   customPromptHelper: null as CustomPromptHelper | null,
+  advancedFeaturesHelper: null as AdvancedFeaturesHelper | null,
 
   // View and state management
   view: "queue" as "queue" | "solutions" | "debug",
@@ -134,9 +136,10 @@ function initializeHelpers() {
     PROCESSING_EVENTS: state.PROCESSING_EVENTS
   } as IProcessingHelperDeps)
   
-  // Initialize new enhanced features
+  // Initialize enhanced features
   state.audioHelper = new AudioHelper()
   state.customPromptHelper = new CustomPromptHelper()
+  state.advancedFeaturesHelper = new AdvancedFeaturesHelper()
   
   state.shortcutsHelper = new ShortcutsHelper({
     getMainWindow,
@@ -377,6 +380,11 @@ function handleWindowClosed(): void {
   state.isWindowVisible = false
   state.windowPosition = null
   state.windowSize = null
+  
+  // Cleanup advanced features
+  if (state.advancedFeaturesHelper) {
+    state.advancedFeaturesHelper.cleanup()
+  }
 }
 
 // Window visibility functions

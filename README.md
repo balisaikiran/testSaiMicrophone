@@ -1,4 +1,4 @@
-# CodeInterviewAssist
+# CodeInterviewAssist - Enhanced Edition
 
 > ## ⚠️ IMPORTANT NOTICE TO THE COMMUNITY ⚠️
 > 
@@ -25,37 +25,86 @@
 >
 > The configuration file is stored at: `C:\Users\[USERNAME]\AppData\Roaming\interview-coder-v1\config.json` (on Windows) or `/Users/[USERNAME]/Library/Application Support/interview-coder-v1/config.json` (on macOS)
 
-## Free, Open-Source AI-Powered Interview Preparation Tool
+## Free, Open-Source AI-Powered Interview Preparation Tool - Enhanced Edition
 
-This project provides a powerful alternative to premium coding interview platforms. It delivers the core functionality of paid interview preparation tools but in a free, open-source package. Using your own OpenAI API key, you get access to advanced features like AI-powered problem analysis, solution generation, and debugging assistance - all running locally on your machine.
+This enhanced version provides a powerful alternative to premium coding interview platforms with advanced features inspired by modern screen capture and automation tools. It delivers comprehensive functionality including screen recording, file management, text extraction, and advanced AI analysis - all running locally on your machine.
 
-### Why This Exists
+### New Enhanced Features
 
-The best coding interview tools are often behind expensive paywalls, making them inaccessible to many students and job seekers. This project provides the same powerful functionality without the cost barrier, letting you:
+#### 🎥 Advanced Screen Capture
+- **Screen Recording**: Record your entire screen or specific applications during practice sessions
+- **Multi-format Support**: Export recordings in WebM format with high quality
+- **Real-time Controls**: Pause, resume, and stop recordings with visual feedback
+- **Automatic Screenshot Integration**: Seamlessly integrate with existing screenshot workflow
+
+#### 📁 File Management System
+- **Drag & Drop Upload**: Upload multiple files simultaneously
+- **File Organization**: Create folders and organize your interview materials
+- **Batch Processing**: Process multiple files at once with AI analysis
+- **Export/Import**: Download files and maintain your interview preparation library
+- **Search Functionality**: Quickly find files by name or type
+
+#### 📝 Text Extraction & OCR
+- **Image to Text**: Extract text from screenshots and uploaded images
+- **AI Enhancement**: Clean up and format extracted text automatically
+- **Multiple Sources**: Extract from screenshots, uploaded images, or clipboard
+- **Export Options**: Save extracted text as files or copy to clipboard
+- **Smart Processing**: Automatically detect and correct OCR errors
+
+#### 🎤 Enhanced Audio Features
+- **Voice Recording**: Record your explanations and convert to text
+- **System Audio Monitoring**: Listen to interview audio for context (with proper consent)
+- **Speech-to-Text**: Automatic transcription using OpenAI Whisper
+- **Audio Analysis**: Process interview audio for better assistance
+
+#### 📊 Activity Logging
+- **Comprehensive Tracking**: Log all activities including screenshots, recordings, and AI interactions
+- **Performance Analytics**: Track your preparation progress over time
+- **Export Logs**: Export activity data for analysis
+- **Error Tracking**: Monitor and debug issues with detailed logging
+
+#### 🔧 Advanced Automation
+- **Batch File Processing**: Process multiple files simultaneously
+- **Custom Workflows**: Create automated sequences for repetitive tasks
+- **Smart Integration**: All features work together seamlessly
+- **Background Processing**: Non-blocking operations for better performance
+
+### Why This Enhanced Version Exists
+
+The best coding interview tools are often behind expensive paywalls, making them inaccessible to many students and job seekers. This enhanced version provides enterprise-level functionality without the cost barrier, letting you:
 
 - Use your own API key (pay only for what you use)
 - Run everything locally on your machine with complete privacy
+- Access advanced features typically found in premium tools
 - Make customizations to suit your specific needs
 - Learn from and contribute to an open-source tool
 
 ### Customization Possibilities
 
-The codebase is designed to be adaptable:
+The enhanced codebase is designed to be highly adaptable:
 
-- **AI Models**: Though currently using OpenAI's models, you can modify the code to integrate with other providers like Claude, Deepseek, Llama, or any model with an API. All integration code is in `electron/ProcessingHelper.ts` and UI settings are in `src/components/Settings/SettingsDialog.tsx`.
-- **Languages**: Add support for additional programming languages
-- **Features**: Extend the functionality with new capabilities 
-- **UI**: Customize the interface to your preferences
+- **AI Models**: Though currently using OpenAI's models, you can modify the code to integrate with other providers like Claude, Deepseek, Llama, or any model with an API
+- **File Formats**: Add support for additional file types and formats
+- **Recording Options**: Extend screen recording with different codecs and quality settings
+- **Automation Scripts**: Create custom automation workflows for your specific needs
+- **UI Themes**: Customize the interface to your preferences
+- **Integration APIs**: Connect with other tools and services
 
-All it takes is modest JavaScript/TypeScript knowledge and understanding of the API you want to integrate.
+All it takes is modest JavaScript/TypeScript knowledge and understanding of the APIs you want to integrate.
 
-## Features
+## Enhanced Features
 
 - 🎯 99% Invisibility: Undetectable window that bypasses most screen capture methods
 - 📸 Smart Screenshot Capture: Capture both question text and code separately for better analysis
+- 🎥 **Screen Recording**: Record your screen during practice sessions with pause/resume controls
+- 📁 **File Management**: Upload, organize, and manage your interview preparation materials
+- 📝 **Text Extraction**: Extract text from images using AI-powered OCR
+- 🎤 **Audio Recording**: Record voice explanations and convert speech to text
+- 🎧 **System Audio**: Monitor interview audio for contextual assistance
 - 🤖 AI-Powered Analysis: Automatically extracts and analyzes coding problems using GPT-4o
 - 💡 Solution Generation: Get detailed explanations and solutions with time/space complexity analysis
 - 🔧 Real-time Debugging: Debug your code with AI assistance and structured feedback
+- 📊 **Activity Logging**: Track all your preparation activities with detailed analytics
 - 🎨 Advanced Window Management: Freely move, resize, change opacity, and zoom the window
 - 🔄 Model Selection: Choose between GPT-4o and GPT-4o-mini for different processing stages
 - 🔒 Privacy-Focused: Your API key and data never leave your computer except for OpenAI API calls
@@ -76,6 +125,32 @@ The application uses unidentifiable global keyboard shortcuts that won't be dete
 - Zoom Out: [Control or Cmd + -]
 - Reset Zoom: [Control or Cmd + 0]
 - Zoom In: [Control or Cmd + =]
+
+## Enhanced Workflow
+
+### 1. Screen Recording Workflow
+1. **Start Recording**: Use the screen recording feature to capture your practice sessions
+2. **Pause/Resume**: Control recording with real-time feedback
+3. **Auto-Analysis**: Recorded sessions can be analyzed for improvement suggestions
+4. **Export**: Save recordings for later review or sharing with mentors
+
+### 2. File Management Workflow
+1. **Upload Materials**: Drag and drop interview questions, code samples, or reference materials
+2. **Organize**: Create folders to categorize different types of problems or companies
+3. **Search**: Quickly find specific files using the built-in search functionality
+4. **Batch Process**: Analyze multiple files simultaneously with AI
+
+### 3. Text Extraction Workflow
+1. **Capture**: Take screenshots of problems or upload images with text
+2. **Extract**: AI automatically extracts and cleans up the text
+3. **Enhance**: Improve formatting and fix OCR errors automatically
+4. **Export**: Save extracted text for further analysis or documentation
+
+### 4. Audio-Enhanced Preparation
+1. **Record Explanations**: Use voice recording to explain your thought process
+2. **Transcribe**: Automatically convert speech to text for documentation
+3. **Monitor Context**: Listen to interview audio for better contextual assistance
+4. **Analyze**: Process audio content for insights and improvements
 
 ## Invisibility Compatibility
 
@@ -107,7 +182,7 @@ Note: The application is **NOT** invisible to:
   - On Linux:
     - May require `xhost` access depending on your distribution
 
-## Running the Application
+## Running the Enhanced Application
 
 ### Quick Start
 
@@ -152,60 +227,70 @@ To create installable packages for distribution:
 
 **For macOS (DMG):**
 ```bash
-# Using npm
 npm run package-mac
-
-# Or using yarn
-yarn package-mac
 ```
 
 **For Windows (Installer):**
 ```bash
-# Using npm
 npm run package-win
-
-# Or using yarn
-yarn package-win
 ```
 
 The packaged applications will be available in the `release` directory.
 
-**What the scripts do:**
-- Create necessary directories for the application
-- Clean previous builds to ensure a fresh start
-- Build the application in production mode
-- Launch the application in invisible mode
+## Enhanced Features Usage Guide
 
-### Notes & Troubleshooting
+### Screen Recording
+1. Open the Advanced Features panel
+2. Navigate to the "Capture" tab
+3. Click "Start Recording" to begin screen capture
+4. Use pause/resume controls as needed
+5. Click "Stop" to finish and save the recording
 
-- **Window Manager Compatibility**: Some window management tools (like Rectangle Pro on macOS) may interfere with the app's window movement. Consider disabling them temporarily.
+### File Management
+1. Access the "Files" tab in Advanced Features
+2. Drag and drop files or use the upload button
+3. Create folders to organize your materials
+4. Use search to quickly find specific files
+5. Download or delete files as needed
 
-- **API Usage**: Be mindful of your OpenAI API key's rate limits and credit usage. Vision API calls are more expensive than text-only calls.
+### Text Extraction
+1. Go to the "Text" tab in Advanced Features
+2. Upload an image or take a screenshot
+3. AI will automatically extract and clean the text
+4. Use the "Enhance" button to improve formatting
+5. Copy or download the extracted text
 
-- **LLM Customization**: You can easily customize the app to include LLMs like Claude, Deepseek, or Grok by modifying the API calls in `ProcessingHelper.ts` and related UI components.
+### Audio Features
+1. Navigate to the "Audio" tab
+2. Use "Voice Recording" for speech-to-text
+3. Enable "System Audio" for interview monitoring
+4. All audio is processed locally for privacy
 
-- **Common Issues**:
-  - Run `npm run clean` before starting the app for a fresh build
-  - Use Ctrl+B/Cmd+B multiple times if the window doesn't appear
-  - Adjust window opacity with Ctrl+[/]/Cmd+[/] if needed
-  - For macOS: ensure script has execute permissions (`chmod +x stealth-run.sh`)
+### Activity Logging
+1. The Activity Logger automatically tracks all actions
+2. View detailed logs of your preparation sessions
+3. Export logs for analysis or sharing
+4. Filter by activity type or success/failure
 
-## Comparison with Paid Interview Tools
+## Comparison with Premium Tools
 
-| Feature | Premium Tools (Paid) | CodeInterviewAssist (This Project) |
-|---------|------------------------|----------------------------------------|
-| Price | $60/month subscription | Free (only pay for your API usage) |
+| Feature | Premium Tools (Paid) | Enhanced CodeInterviewAssist |
+|---------|------------------------|-------------------------------|
+| Price | $60-200/month | Free (only pay for API usage) |
+| Screen Recording | ✅ | ✅ |
+| File Management | ✅ | ✅ |
+| Text Extraction/OCR | ✅ | ✅ |
+| Audio Recording | ✅ | ✅ |
+| System Audio Monitoring | ✅ | ✅ |
+| Activity Logging | ✅ | ✅ |
+| Batch Processing | ✅ | ✅ |
 | Solution Generation | ✅ | ✅ |
 | Debugging Assistance | ✅ | ✅ |
 | Invisibility | ✅ | ✅ |
 | Multi-language Support | ✅ | ✅ |
-| Time/Space Complexity Analysis | ✅ | ✅ |
-| Window Management | ✅ | ✅ |
-| Auth System | Required | None (Simplified) |
-| Payment Processing | Required | None (Use your own API key) |
 | Privacy | Server-processed | 100% Local Processing |
 | Customization | Limited | Full Source Code Access |
-| Model Selection | Limited | Choice Between Models |
+| Model Selection | Limited | Multiple AI Providers |
 
 ## Tech Stack
 
@@ -216,65 +301,42 @@ The packaged applications will be available in the `release` directory.
 - Tailwind CSS
 - Radix UI Components
 - OpenAI API
+- Web APIs for media capture
+- File System APIs
+- Speech Recognition APIs
 
-## How It Works
+## Enhanced Architecture
 
-1. **Initial Setup**
-   - Launch the invisible window
-   - Enter your OpenAI API key in the settings
-   - Choose your preferred model for extraction, solution generation, and debugging
+The enhanced version includes several new architectural components:
 
-2. **Capturing Problem**
-   - Use global shortcut [Control or Cmd + H] to take screenshots of code problems
-   - Screenshots are automatically added to the queue of up to 2
-   - If needed, remove the last screenshot with [Control or Cmd + L]
+### Frontend Components
+- `ScreenCaptureManager`: Handles screen recording and screenshot capture
+- `FileManager`: Manages file uploads, organization, and downloads
+- `TextExtractor`: AI-powered text extraction from images
+- `AdvancedFeaturesPanel`: Unified interface for all enhanced features
+- `ActivityLogger`: Tracks and displays user activity
 
-3. **Processing**
-   - Press [Control or Cmd + Enter] to analyze the screenshots
-   - AI extracts problem requirements from the screenshots using GPT-4 Vision API
-   - The model generates an optimal solution based on the extracted information
-   - All analysis is done using your personal OpenAI API key
+### Backend Helpers
+- `AdvancedFeaturesHelper`: Coordinates enhanced functionality
+- Enhanced `AudioHelper`: Improved audio processing capabilities
+- Enhanced `CustomPromptHelper`: Advanced prompt processing
+- Enhanced `ProcessingHelper`: Improved AI integration
 
-4. **Solution & Debugging**
-   - View the generated solutions with detailed explanations
-   - Use debugging feature by taking more screenshots of error messages or code
-   - Get structured analysis with identified issues, corrections, and optimizations
-   - Toggle between solutions and queue views as needed
-
-5. **Window Management**
-   - Move window using [Control or Cmd + Arrow keys]
-   - Toggle visibility with [Control or Cmd + B]
-   - Adjust opacity with [Control or Cmd + [] and [Control or Cmd + ]]
-   - Window remains invisible to specified screen sharing applications
-   - Start a new problem using [Control or Cmd + R]
-
-6. **Language Selection
-
-   - Easily switch between programming languages with a single click
-   - Use arrow keys for keyboard navigation through available languages
-   - The system dynamically adapts to any languages added or removed from the codebase
-   - Your language preference is saved between sessions
-
-## Adding More AI Models
-
-This application is built with extensibility in mind. You can easily add support for additional LLMs alongside the existing OpenAI integration:
-
-- You can add Claude, Deepseek, Grok, or any other AI model as alternative options
-- The application architecture allows for multiple LLM backends to coexist
-- Users can have the freedom to choose their preferred AI provider
-
-To add new models, simply extend the API integration in `electron/ProcessingHelper.ts` and add the corresponding UI options in `src/components/Settings/SettingsDialog.tsx`. The modular design makes this straightforward without disrupting existing functionality.
+### Data Flow
+1. **Capture**: Screen recording, screenshots, file uploads
+2. **Process**: AI analysis, text extraction, audio transcription
+3. **Store**: Local file management and activity logging
+4. **Analyze**: Batch processing and advanced AI features
+5. **Export**: Multiple export formats and sharing options
 
 ## Configuration
 
 - **OpenAI API Key**: Your personal API key is stored locally and only used for API calls to OpenAI
-- **Model Selection**: You can choose between GPT-4o and GPT-4o-mini for each stage of processing:
-  - Problem Extraction: Analyzes screenshots to understand the coding problem
-  - Solution Generation: Creates optimized solutions with explanations
-  - Debugging: Provides detailed analysis of errors and improvement suggestions
-- **Language**: Select your preferred programming language for solutions
-- **Window Controls**: Adjust opacity, position, and zoom level using keyboard shortcuts
-- **All settings are stored locally** in your user data directory and persist between sessions
+- **Model Selection**: Choose between GPT-4o and GPT-4o-mini for each stage of processing
+- **File Storage**: All files are stored locally in your user data directory
+- **Activity Logging**: Comprehensive logging of all application activities
+- **Privacy Settings**: Control what data is processed and how
+- **Export Options**: Configure default export formats and locations
 
 ## License
 
@@ -301,6 +363,8 @@ This tool is intended as a learning aid and practice assistant. While it can hel
 - Use this tool to learn concepts, not just to get answers
 - Recognize that understanding solutions is more valuable than simply presenting them
 - In take-home assignments, make sure you thoroughly understand any solutions you submit
+- Respect privacy when using audio monitoring features
+- Obtain proper consent before recording any interview audio
 
 Remember that the purpose of technical interviews is to assess your problem-solving skills and understanding. This tool works best when used to enhance your learning, not as a substitute for it.
 
@@ -311,3 +375,23 @@ If you have questions or need support, please open an issue on the GitHub reposi
 ---
 
 > **Remember:** This is a community resource. If you find it valuable, consider contributing rather than just requesting features. The project grows through collective effort, not individual demands.
+
+## Enhanced Features Roadmap
+
+### Planned Enhancements
+- **Video Analysis**: AI-powered analysis of recorded practice sessions
+- **Performance Metrics**: Detailed analytics on preparation progress
+- **Cloud Sync**: Optional cloud synchronization for multi-device access
+- **Collaboration Tools**: Share practice sessions with mentors or study groups
+- **Advanced Automation**: Custom scripting for repetitive tasks
+- **Integration APIs**: Connect with popular coding platforms and tools
+
+### Community Contributions Welcome
+- Additional file format support
+- New AI model integrations
+- Enhanced automation scripts
+- UI/UX improvements
+- Performance optimizations
+- Documentation improvements
+
+The enhanced version represents a significant evolution of the original Interview Coder, providing enterprise-level functionality while maintaining the core principles of privacy, customization, and community-driven development.

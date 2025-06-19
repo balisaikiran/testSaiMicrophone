@@ -75,6 +75,25 @@ export interface ElectronAPI {
   analyzeScreenshotForPrompt: (screenshotData: string, userPrompt: string) => Promise<{ success: boolean; analysis?: any; error?: string }>
   generateCustomResponse: (prompt: string, context: any) => Promise<{ success: boolean; response?: string; error?: string }>
   analyzeMultipleScreenshots: (screenshots: Array<{ data: string; description?: string }>, analysisType: string) => Promise<{ success: boolean; analysis?: any; error?: string }>
+
+  // Advanced Features - Screen Recording
+  startScreenRecording: () => Promise<{ success: boolean; error?: string }>
+  stopScreenRecording: () => Promise<{ success: boolean; recordingData?: string; error?: string }>
+
+  // Advanced Features - File Management
+  saveFile: (fileName: string, data: string, mimeType: string) => Promise<{ success: boolean; filePath?: string; error?: string }>
+  loadFile: (filePath: string) => Promise<{ success: boolean; data?: string; mimeType?: string; error?: string }>
+  deleteFile: (filePath: string) => Promise<{ success: boolean; error?: string }>
+
+  // Advanced Features - Text Processing
+  processTextWithAI: (text: string, operation: string) => Promise<{ success: boolean; result?: string; error?: string }>
+
+  // Advanced Features - Batch Processing
+  batchProcessFiles: (files: Array<{ name: string; data: string; type: string }>) => Promise<{ success: boolean; results?: any[]; error?: string }>
+
+  // Delete last screenshot
+  deleteLastScreenshot: () => Promise<{ success: boolean; error?: string }>
+  onDeleteLastScreenshot: (callback: () => void) => () => void
 }
 
 declare global {
@@ -93,5 +112,12 @@ declare global {
     __LANGUAGE__: string
     __IS_INITIALIZED__: boolean
     __AUTH_TOKEN__?: string | null
+    logActivity?: (
+      type: 'screenshot' | 'recording' | 'text_extraction' | 'file_upload' | 'custom_prompt' | 'audio_transcription' | 'system_audio',
+      description: string,
+      data?: any,
+      duration?: number,
+      success?: boolean
+    ) => void
   }
 }

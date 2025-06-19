@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react"
 import { useQuery } from "@tanstack/react-query"
 import ScreenshotQueue from "../components/Queue/ScreenshotQueue"
 import QueueCommands from "../components/Queue/QueueCommands"
-import { EnhancedFeaturesPanel } from "../components/EnhancedFeatures/EnhancedFeaturesPanel"
+import { AdvancedFeaturesPanel } from "../components/AdvancedFeatures/AdvancedFeaturesPanel"
+import { ActivityLogger } from "../components/ActivityLogger/ActivityLogger"
 
 import { useToast } from "../contexts/toast"
 import { Screenshot } from "../types/screenshots"
@@ -59,18 +60,70 @@ const Queue: React.FC<QueueProps> = ({
 
       if (response.success) {
         refetch() // Refetch screenshots instead of managing state directly
+        
+        // Log activity
+        if ((window as any).logActivity) {
+          (window as any).logActivity(
+            'screenshot',
+            `Screenshot deleted: ${screenshotToDelete.path}`,
+            { path: screenshotToDelete.path },
+            undefined,
+            true
+          );
+        }
       } else {
         console.error("Failed to delete screenshot:", response.error)
         showToast("Error", "Failed to delete the screenshot file", "error")
+        
+        // Log failed activity
+        if ((window as any).logActivity) {
+          (window as any).logActivity(
+            'screenshot',
+            `Failed to delete screenshot: ${response.error}`,
+            { path: screenshotToDelete.path, error: response.error },
+            undefined,
+            false
+          );
+        }
       }
     } catch (error) {
       console.error("Error deleting screenshot:", error)
+      
+      // Log failed activity
+      if ((window as any).logActivity) {
+        (window as any).logActivity(
+          'screenshot',
+          `Error deleting screenshot: ${error}`,
+          { path: screenshotToDelete.path, error: error },
+          undefined,
+          false
+        );
+      }
     }
   }
 
-  const handleCustomResponse = (response: string) => {
-    setCustomResponse(response)
-    showToast("Custom Response", "AI response generated from your custom prompt", "success")
+  const handleAdvancedFeatureUsed = (feature: string, data: any) => {
+    // Log the advanced feature usage
+    if ((window as any).logActivity) {
+      (window as any).logActivity(
+        feature as any,
+        `Advanced feature used: ${feature}`,
+        data,
+        undefined,
+        true
+      );
+    }
+
+    // Handle specific feature responses
+    if (feature === 'custom_prompt' && data.response) {
+      setCustomResponse(data.response);
+    }
+    
+    showToast(
+      "Feature Used", 
+      `${feature.replace('_', ' ')} completed successfully`, 
+      "success"
+    );
   }
 
   useEffect(() => {
@@ -98,13 +151,25 @@ const Queue: React.FC<QueueProps> = ({
 
     // Set up event listeners
     const cleanupFunctions = [
-      window.electronAPI.onScreenshotTaken(() => refetch()),
+      window.electronAPI.onScreenshotTaken(() => {
+        refetch()
+        
+        // Log screenshot activity
+        if ((window as any).logActivity) {
+          (window as any).logActivity(
+            'screenshot',
+            'Screenshot captured successfully',
+            undefined,
+            undefined,
+            true
+          );
+        }
+      }),
       window.electronAPI.onResetView(() => refetch()),
       window.electronAPI.onDeleteLastScreenshot(async () => {
         if (screenshots.length > 0) {
           const lastScreenshot = screenshots[screenshots.length - 1];
           await handleDeleteScreenshot(screenshots.length - 1);
-          // Toast removed as requested
         } else {
           showToast("No Screenshots", "There are no screenshots to delete", "neutral");
         }
@@ -117,6 +182,17 @@ const Queue: React.FC<QueueProps> = ({
         )
         setView("queue") // Revert to queue if processing fails
         console.error("Processing error:", error)
+        
+        // Log error activity
+        if ((window as any).logActivity) {
+          (window as any).logActivity(
+            'screenshot',
+            `Solution processing failed: ${error}`,
+            { error },
+            undefined,
+            false
+          );
+        }
       }),
       window.electronAPI.onProcessingNoScreenshots(() => {
         showToast(
@@ -125,7 +201,6 @@ const Queue: React.FC<QueueProps> = ({
           "neutral"
         )
       }),
-      // Removed out of credits handler - unlimited credits in this version
     ]
 
     return () => {
@@ -161,11 +236,14 @@ const Queue: React.FC<QueueProps> = ({
             setLanguage={setLanguage}
           />
 
-          {/* Enhanced Features Panel */}
-          <EnhancedFeaturesPanel
-            onCustomResponse={handleCustomResponse}
+          {/* Advanced Features Panel */}
+          <AdvancedFeaturesPanel
+            onFeatureUsed={handleAdvancedFeatureUsed}
             className="mt-4"
           />
+
+          {/* Activity Logger */}
+          <ActivityLogger className="mt-4" />
 
           {/* Custom Response Display */}
           {customResponse && (
